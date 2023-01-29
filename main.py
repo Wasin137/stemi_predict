@@ -86,12 +86,12 @@ if st.button('Make Prediction'):
     if (int(age) <= 0) | (int(hr) <= 0) | (int(sbp) <= 0) | (int(dbp) <= 0) | (int(rr) <= 0) | (int(oxygen) <= 0):
         st.write('Please complete the field')
     else:
-        feature_dict['age'] = age
-        feature_dict['hr'] = hr
-        feature_dict['sbp'] = sbp
-        feature_dict['dbp'] = dbp
-        feature_dict['rr'] = rr
-        feature_dict['o2sat'] = oxygen
+        feature_dict['age'] = int(age)
+        feature_dict['hr'] = int(hr)
+        feature_dict['sbp'] = int(sbp)
+        feature_dict['dbp'] = int(dbp)
+        feature_dict['rr'] = int(rr)
+        feature_dict['o2sat'] = int(oxygen)
         if dm:
             feature_dict['dm'] = 1
         if ht:
