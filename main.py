@@ -174,8 +174,9 @@ if st.button('Make Prediction'):
             feature_dict['killip_4'] = 1
     feature_df = pd.DataFrame.from_dict(feature_dict, orient='index', columns=['value'])
     feature_df = feature_df.transpose().reset_index(drop=True)
-    prediction = model.predict(feature_df)
-    st.write(f'This case most likely to {prediction}')
+    print(feature_df)
+    # prediction = model.predict(feature_df)
+    # st.write(f'This case most likely to {prediction}')
 
 
 # def make_inp(inp_abo, inp_day, inp_month):
