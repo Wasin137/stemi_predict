@@ -83,7 +83,7 @@ with left_column:
 if st.button('Make Prediction'):
     list_feature = ['age', 'hr','sbp','dbp','rr','o2sat','dm','ht','dlp','smoking','no_smoking','familia_hx','prior_mi','prior_hf','prior_pci','prior_cabg','cva','pad','copd','ckd_stage3','dialysis','cardiogenic_shock','hf','ett','no_ett','tachy_arrhy','af','svt','non_sus_vt','vt_vf','vt_vf_defib','cpr','brady_arrhy','chb','2_av_block','on_ext_pace','on_tpm','echo','ef','elev_trop_t','no_elev_trop_t','killip_1','killip_2','killip_3','killip_4',]
     feature_dict =  dict.fromkeys(list_feature, 0)
-    if (age <= 0) | (hr <= 0) | (sbp <= 0) | (dbp <= 0) | (rr <= 0) | (oxygen <= 0):
+    if (int(age) <= 0) | (int(hr) <= 0) | (int(sbp) <= 0) | (int(dbp) <= 0) | (int(rr) <= 0) | (int(oxygen) <= 0):
         st.write('Please complete the field')
     else:
         feature_dict['age'] = age
