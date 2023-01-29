@@ -175,6 +175,7 @@ if st.button('Make Prediction'):
     feature_df = pd.DataFrame.from_dict(feature_dict, orient='index', columns=['value'])
     feature_df = feature_df.transpose().reset_index(drop=True)
     print(feature_df)
+    feature_df
     # prediction = model.predict(feature_df)
     # st.write(f'This case most likely to {prediction}')
 
