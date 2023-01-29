@@ -7,7 +7,7 @@ st.header('STEMI Death Prediction by Some features (Beta-Version)')
 
 #Load model
 model = xgb.XGBClassifier(max_depth=5, n_estimators=50)
-model.load_model('death_model.pkl')
+model.load_model('death_model.json')
 
 st.subheader('Age')
 left_column, right_column = st.columns(2)
