@@ -159,7 +159,7 @@ if st.button('Make Prediction'):
             feature_dict['on_tpm'] = 1
         if echo:
             feature_dict['echo'] = 1
-            feature_dict['ef'] = ef
+            feature_dict['ef'] = float(ef)
         if trop_t:
             feature_dict['elev_trop_t'] = 1
         else:
@@ -174,27 +174,5 @@ if st.button('Make Prediction'):
             feature_dict['killip_4'] = 1
     feature_df = pd.DataFrame.from_dict(feature_dict, orient='index', columns=['value'])
     feature_df = feature_df.transpose().reset_index(drop=True)
-    print(feature_df)
-    feature_df
-    # prediction = model.predict(feature_df)
-    # st.write(f'This case most likely to {prediction}')
-
-
-# def make_inp(inp_abo, inp_day, inp_month):
-#     keys = ['ABOGROUP_A', 'ABOGROUP_AB', 'ABOGROUP_B', 'ABOGROUP_O', 'weekday_friday', 'weekday_monday', 'weekday_saturday', 'weekday_sunday', 'weekday_thursday', 'weekday_tuesday', 'weekday_wednesday', 'month_April', 'month_August', 'month_December', 'month_February', 'month_January', 'month_July', 'month_June', 'month_March' ,'month_May', 'month_November', 'month_October', 'month_September']
-#     feature_dict = dict.fromkeys(keys, 0)
-#     for k in feature_dict.keys():
-#         if k == f"ABOGROUP_{inp_abo}":
-#             feature_dict[k] = 1
-#         elif k == f"weekday_{inp_day}":
-#             feature_dict[k] = 1
-#         elif k == f"month_{inp_month}":
-#             feature_dict[k] = 1
-#         else:
-#             feature_dict[k] = 0
-#     cols_order = ['ABOGROUP_A', 'ABOGROUP_B', 'ABOGROUP_AB', 'ABOGROUP_O', 'weekday_friday', 'weekday_monday', 'weekday_saturday', 'weekday_sunday', 'weekday_thursday', 'weekday_tuesday', 'weekday_wednesday', 'month_January', 'month_February', 'month_March', 'month_April', 'month_May', 'month_June', 'month_July', 'month_August', 'month_September', 'month_October', 'month_November', 'month_December']
-#     feature_df = pd.DataFrame.from_dict(feature_dict, orient='index', columns=['value'])
-#     feature_df = feature_df.transpose().reset_index(drop=True)
-#     feature_df = feature_df[cols_order]
-#     return feature_df
-
+    prediction = model.predict_proba(feature_df)
+    st.write(f'Death probability of this case is {prediction[0][1]}')
