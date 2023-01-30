@@ -175,4 +175,4 @@ if st.button('Make Prediction'):
     feature_df = pd.DataFrame.from_dict(feature_dict, orient='index', columns=['value'])
     feature_df = feature_df.transpose().reset_index(drop=True)
     prediction = model.predict_proba(feature_df)
-    st.write(f'Death probability of this case is {prediction[0][1]}')
+    st.markdown(f'Death probability of this case is **:red[{prediction[0][1]} %]**')
